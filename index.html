@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StayEase - Hotel Booking</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- LOGIN PAGE -->
+    <div id="loginPage">
+        <div class="login-box">
+
+            <h1>StayEase</h1>
+            <h2>Login</h2>
+
+            <select id="role">
+                <option value="user">User Login</option>
+                <option value="admin">Admin Login</option>
+            </select>
+
+            <input id="email" type="email" placeholder="Enter Email">
+
+            <input id="password" type="password"
+                   placeholder="Enter Password">
+
+            <button onclick="checkLogin()">Login</button>
+
+            <p id="error"></p>
+
+            <div class="signup">
+                Don't have an account?
+                <span onclick="showSignIn()">Sign In</span>
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- USER MAIN PAGE -->
+    <div id="main">
+
+        <nav>
+            <h2>StayEase</h2>
+
+            <div>
+                <a href="#">Home</a>
+                <a href="#hotels">Hotels</a>
+                <a href="#features">Features</a>
+                <a href="#" onclick="logout()">Logout</a>
+            </div>
+        </nav>
+
+
+        <section class="hero">
+
+            <h1>Find Your Perfect Stay</h1>
+
+            <p>
+                Book hotels easily at the best prices
+            </p>
+
+        </section>
+
+
+        <!-- SEARCH -->
+        <div class="search">
+
+            <h2>Search Hotels & Cities</h2>
+
+            <input
+                id="search"
+                placeholder="Enter hotel or city name">
+
+            <button onclick="find()">Search</button>
+
+        </div>
+
+
+        <!-- HOTELS -->
+        <div class="container" id="hotels">
+
+            <h2>Popular Hotels</h2>
+
+            <div class="hotels" id="list"></div>
+
+
+            <!-- FEATURES -->
+            <section id="features">
+
+                <h2>Why Choose StayEase?</h2>
+
+                <div class="features">
+
+                    <div class="feature">
+                        <h3>Best Hotels</h3>
+                        <p>Quality hotels</p>
+                    </div>
+
+                    <div class="feature">
+                        <h3>Best Prices</h3>
+                        <p>Affordable rooms</p>
+                    </div>
+
+                    <div class="feature">
+                        <h3>Secure Booking</h3>
+                        <p>Safe reservations</p>
+                    </div>
+
+                    <div class="feature">
+                        <h3>24/7 Support</h3>
+                        <p>Always available</p>
+                    </div>
+
+                </div>
+
+            </section>
+
+        </div>
+
+
+        <footer>
+            © 2026 StayEase | Hotel Booking Platform
+        </footer>
+
+    </div>
+
+
+    <!-- BOOKING MODAL -->
+    <div class="modal" id="bookBox">
+
+        <div class="box">
+
+            <span class="close" onclick="closeBox()">X</span>
+
+            <h2>Book Hotel</h2>
+
+            <input id="hotel" readonly>
+
+            <input id="price" readonly>
+
+            <input
+                id="customerName"
+                placeholder="Your Name">
+
+            <input
+                id="customerEmail"
+                type="email"
+                placeholder="Email">
+
+            <label>Check-in</label>
+
+            <input id="checkin" type="date">
+
+            <label>Check-out</label>
+
+            <input id="checkout" type="date">
+
+            <select id="guests">
+                <option>1 Guest</option>
+                <option>2 Guests</option>
+                <option>3 Guests</option>
+                <option>4 Guests</option>
+            </select>
+
+            <button onclick="confirmBooking()">
+                Confirm Booking
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- ADMIN PAGE -->
+    <div id="adminPage">
+
+        <div class="admin-header">
+
+            <h2>StayEase Admin Dashboard</h2>
+
+            <button onclick="adminLogout()">Logout</button>
+
+        </div>
+
+
+        <div class="admin-container">
+
+            <div class="admin-card">
+
+                <h2>Welcome, Admin 👨‍💼</h2>
+
+                <p>
+                    Manage hotels and view the StayEase platform.
+                </p>
+
+            </div>
+
+
+            <!-- ADD HOTEL -->
+            <div class="admin-card">
+
+                <h2>Add New Hotel</h2>
+
+                <input id="newCity" placeholder="City">
+
+                <input id="newHotel" placeholder="Hotel Name">
+
+                <input
+                    id="newPrice"
+                    type="number"
+                    placeholder="Price per night">
+
+                <button onclick="addHotel()">
+                    Add Hotel
+                </button>
+
+                <p id="adminMessage"></p>
+
+            </div>
+
+
+            <!-- HOTEL MANAGEMENT -->
+            <div class="admin-card">
+
+                <h2>Hotel Management</h2>
+
+                <table class="admin-table">
+
+                    <thead>
+                        <tr>
+                            <th>No.</th>
+                            <th>City</th>
+                            <th>Hotel</th>
+                            <th>Price</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="adminList"></tbody>
+
+                </table>
+
+            </div>
+
+
+            <!-- STATISTICS -->
+            <div class="admin-card">
+
+                <h2>Platform Statistics</h2>
+
+                <p>
+                    Total Hotels:
+                    <strong id="hotelCount">0</strong>
+                </p>
+
+                <p>
+                    Total Cities:
+                    <strong id="cityCount">0</strong>
+                </p>
+
+                <p>
+                    Platform Status:
+                    <strong>Active</strong>
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
